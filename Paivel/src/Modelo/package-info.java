@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Modelo;
 
 //Agendamento de eventos
 /**
@@ -32,14 +32,14 @@ package Model;
  * conta (se voce nao contratar o extra deles).
  *
  * Os saloes sao climatizados, mas isso tambem e' um extra se quiseres o ac
- * ligado (usam acs industriais)
+ * ligado (usam as industriais)
  */
 
 //Adiamento de Evento
 /**
  * Um adiamento mediante uma justificacao plausivel e' permito sem a cobranca de
  * nenhuma taxa extra. Mas para os adiamentos subsequentes, e' cobrada uma taxa
- * (30.00MT na Vila Verde) sem sequer perguntar os motivos.
+ * (30.00 0MT na Vila Verde) sem sequer perguntar os motivos.
  *
  */
 
