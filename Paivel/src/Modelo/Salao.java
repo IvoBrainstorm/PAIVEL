@@ -35,11 +35,11 @@ public class Salao implements Serializable {
     @OneToMany
     //um salao esta para varios eventos
     private Collection<Evento> eventos = new ArrayList<>();
-    
+
     @OneToMany
     //Um Salao esta para varios materiais
     private Collection<Material> material = new ArrayList<>();
-    
+
     public String getNome() {
         return nome;
     }
@@ -104,6 +104,20 @@ public class Salao implements Serializable {
         this.codigoSalao = codigoSalao;
     }
 
-    
-    
+    public boolean disponibilizarSalao() {
+        if (this.isDisponivel()) {
+            return false;
+        }
+        this.setDisponivel(true);
+        return true;
+    }
+
+    public boolean indisponibilizarSalao() {
+        if (this.isDisponivel()) {
+            this.setDisponivel(false);
+            return true;
+        }
+        return false;
+    }
+
 }

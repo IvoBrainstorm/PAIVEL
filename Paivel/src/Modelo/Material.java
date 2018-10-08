@@ -27,9 +27,10 @@ public class Material implements Serializable {
     private Integer id_material;
     private String codigoMaterial;
     private String nome;
-    private short quantidade;
+    private int quantidade;
     private String descricao;
     private boolean disponivel;
+    private boolean alugavel;
 
     //Um material esta para uma categoria
     //Uma categoria esta para varios materiais
@@ -40,6 +41,10 @@ public class Material implements Serializable {
     @ManyToMany
     //Um material esta para varios eventos.
     private Collection<Evento> evento = new ArrayList<>();
+
+    @ManyToMany
+    //Um material pode ser alugado por varias entidades.
+    private Collection<Alugar> alugueres = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "id_salao")
@@ -53,11 +58,11 @@ public class Material implements Serializable {
         this.nome = nome;
     }
 
-    public short getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(short quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -115,6 +120,24 @@ public class Material implements Serializable {
 
     public void setSalao(Salao salao) {
         this.salao = salao;
+    }
+
+    public boolean isAlugavel() {
+        return alugavel;
+    }
+
+    public void setAlugavel(boolean alugavel) {
+        this.alugavel = alugavel;
+    }
+
+    public boolean alugar(int quantidade) {
+        if (this.isAlugavel()) {
+            if (this.getQuantidade() >= quantidade) {
+                this.setQuantidade(this.getQuantidade() - quantidade);
+                return true;
+            }
+        }
+        return false;
     }
 
 }

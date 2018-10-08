@@ -27,7 +27,7 @@ import javax.persistence.TemporalType;
  */
 @Entity(name = "evento")
 public class Evento implements Serializable {
-    
+
     @Id
     @GeneratedValue
     private Integer id_evento;
@@ -40,6 +40,8 @@ public class Evento implements Serializable {
     @Temporal(TemporalType.TIME)
     private Date duracao; //a duracao do evento e' por default 19 horas (05 - 23 hrs).
     private double preco; //O preco sera igual a nrPessoas*precoDoSalao - algumDesconto + algumaTaxa 
+    private double valorDasParcelas;
+    private double taxaAdiamento;
     private boolean activo;
 
     @ManyToOne
@@ -158,13 +160,62 @@ public class Evento implements Serializable {
         this.codigoEvento = codigoEvento;
     }
 
+    public double getTaxaAdiamento() {
+        return taxaAdiamento;
+    }
+
+    public void setTaxaAdiamento(double taxaAdiamento) {
+        this.taxaAdiamento = taxaAdiamento;
+    }
+
+    public double getValorDasParcelas() {
+        return valorDasParcelas;
+    }
+
+    public void setValorDasParcelas(double valorDasParcelas) {
+        this.valorDasParcelas = valorDasParcelas;
+    }
+
     /**
      * Vila Verde aceita um adiamento sem pagamento de taxa, mediante a
      * apresentacao de justificacao plausivel, mas se houver um segundo
      * adiamento, sera cobrada uma taxa de 30.000 MT para se adiar, mas os 30%
      * do valor do evento continuam la ate o termino do pagamento das parcelas.
+     *
+     * @param novaData
+     * @param valor
      */
-    public void adiar() {
-
+    public void adiar(Date novaData, double valor) {
+        this.taxaAdiamento = valor;
+        this.setDataDeRealizacao(novaData);
     }
+
+    public boolean desactivar() {
+        if (this.isActivo()) {
+            this.setActivo(false);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean pagarParcela(double valor) {
+        if (valor >= 0) {
+            if (this.getValorDasParcelas() < this.getPreco()) {
+                if ((this.getValorDasParcelas() + valor) <= this.getPreco()) {
+                    this.setValorDasParcelas(valor+this.getValorDasParcelas());
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean activar() {
+        if (this.isActivo()) {
+            return false;
+        }
+        this.setActivo(true);
+        return false;
+    }
+
 }
