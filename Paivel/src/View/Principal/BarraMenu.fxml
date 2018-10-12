@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="barramenu" maxHeight="-Infinity" prefHeight="50.0" prefWidth="1024.0" style="-fx-background-color: #fff;" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Principal.BarraMenuController">
+   <children>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="70.0" styleClass="menu-barra-btns" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIcon iconName="TH_LIST" size="3em" styleClass="menu-barra-btns-icon" />
+         </graphic>
+      </JFXButton>
+      <HBox HBox.hgrow="ALWAYS" />
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+      <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
+         <children>
+            <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="70.0" styleClass="menu-barra-btns" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon iconName="USER" size="3em" styleClass="menu-barra-btns-icon" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="70.0" styleClass="menu-barra-btns" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon iconName="TH_LIST" size="3em" styleClass="menu-barra-btns-icon" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</HBox>
