@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 23, 2018, 9:43:16 PM
+    Author     : brainstorm
+*/
+.janela-info{
+    -fx-background-color: rgb(58, 69, 88);
+}
+
+.fundo-cabexalho{
+    -fx-background-color: #d9dfe2;
+}
+
+.janela-user-lbl{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #b8b1b1;
+}
+
+.janela-btn{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #b8b1b1;
+}
+
+.janela-btn:hover{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #b8b1b1;
+    -fx-border-color: rgb(22, 169, 250);
+    -fx-border-width: 0px 0px 0px 3px;
+}
+
+.label{
+    -fx-text-fill: #b8b1b1;
+}
+
+.janela-btn:pressed .label{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #0099ff; 
+}
+
+.janela-btn:pressed .janela-btn-icon{
+    -fx-fill:#0099ff;
+}
+
+.janela-btn-icon{
+    -fx-fill: #b8b1b1;
+}
+
+.menu-barra-btns{
+    -fx-background-color:  #d9dfe2;;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+}
+
+.menu-barra-btns:hover{
+    -fx-background-color: #0099ff;
+}
+
+.menu-barra-btns-icon{
+    -fx-fill: #999;
+}
+
+.menu-barra-btns:hover .menu-barra-btns-icon{
+    -fx-background-color:  #d9dfe2;;
+}
+
+.lado-cirle-btn{
+    -fx-background-color: transparent;
+    -fx-background-radius: 100px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 100%;
+}
+
+.lado-cirle-btn:hover{
+    -fx-background-color: #b0acf8;
+    -fx-background-radius: 100px;
+}
+

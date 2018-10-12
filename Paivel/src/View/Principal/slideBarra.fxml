@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="slideArea" alignment="TOP_CENTER" prefHeight="580.0" prefWidth="250.0" styleClass="janela-info" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Principal.SlideBarraController">
+   <children>
+      <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../Icons/user-1.png" />
+         </image>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </ImageView>
+      <Label styleClass="janela-user-lbl" text="Maria Das Dores">
+         <font>
+            <Font name="DejaVu Sans Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" text="Geral" textFill="#b8b1b1">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="DejaVu Sans Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnHome" alignment="TOP_LEFT" onAction="#open_menu" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Home">
+         <graphic>
+            <FontAwesomeIcon iconName="HOME" size="2em" styleClass="janela-btn-icon" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnCliente" alignment="TOP_LEFT" layoutX="10.0" layoutY="162.0" onAction="#open_Cliente" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Clientes">
+         <graphic>
+            <FontAwesomeIcon iconName="USERS" size="2em" styleClass="janela-btn-icon" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnProductos" alignment="TOP_LEFT" layoutX="10.0" layoutY="162.0" onAction="#open_AddProductos" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Adicionar Productos">
+         <graphic>
+            <FontAwesomeIcon iconName="HOME" size="2em" styleClass="janela-btn-icon" />
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" layoutX="10.0" layoutY="198.0" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Eventos">
+         <graphic>
+            <FontAwesomeIcon iconName="HOME" size="2em" styleClass="janela-btn-icon" />
+         </graphic>
+      </JFXButton>
+      <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" text="Administrador" textFill="#b8b1b1">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <font>
+            <Font name="DejaVu Sans Bold" size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </Label>
+      <JFXButton fx:id="btnConfig" alignment="TOP_LEFT" layoutX="10.0" layoutY="308.0" onAction="#open_config" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Configuracoes">
+         <graphic>
+            <FontAwesomeIcon iconName="HOME" size="2em" styleClass="janela-btn-icon" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnUsuario" alignment="TOP_LEFT" layoutX="10.0" layoutY="344.0" onAction="#open_usuario" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Usuarios">
+         <graphic>
+            <FontAwesomeIcon iconName="USERS" size="2em" styleClass="janela-btn-icon" />
+         </graphic>
+      </JFXButton>
+   </children>
+</VBox>
