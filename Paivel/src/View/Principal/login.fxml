@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="409.0" prefWidth="800.0" stylesheets="@styleLogin.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="View.Principal.LoginController">
+   <children>
+      <AnchorPane fx:id="painelDados" layoutX="193.0" layoutY="45.0" opacity="0.8" prefHeight="319.0" prefWidth="415.0" styleClass="cardPane">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="153.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/cutlery.png" />
+               </image>
+            </ImageView>
+            <JFXTextField labelFloat="true" layoutX="86.0" layoutY="133.0" maxWidth="235.0" minWidth="235.0" prefHeight="31.0" prefWidth="235.0" promptText="Usuario">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField labelFloat="true" layoutX="86.0" layoutY="190.0" maxWidth="235.0" minWidth="194.0" prefHeight="31.0" prefWidth="235.0" promptText="Senha">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXButton buttonType="RAISED" layoutX="153.0" layoutY="239.0" prefHeight="30.0" prefWidth="100.0" styleClass="botaoLogin" text="Entrar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="262.0" layoutY="288.0" onMouseClicked="#btnRecuperarPalavraPasse" text="Esqueceu a Palavra Passe?" />
+         </children>
+      </AnchorPane>
+      <FontAwesomeIcon fx:id="btnClose" fill="#f8f8f8" glyphStyleClass="" iconName="CLOSE" layoutX="769.0" layoutY="33.0" onMouseClicked="#closeEvento" size="2em" />
+   </children>
+</AnchorPane>
