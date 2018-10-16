@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View.Principal;
+package View.Control;
 
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
@@ -58,7 +58,7 @@ public class SlideBarraController implements Initializable {
     @FXML
     void open_AddProductos(ActionEvent event) {
         try {
-            FXMLLoader painel_productos = new FXMLLoader(getClass().getResource("Material.fxml"));
+            FXMLLoader painel_productos = new FXMLLoader(getClass().getResource("/View/View/Material.fxml"));
             Parent root1 = (Parent) painel_productos.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
@@ -71,7 +71,7 @@ public class SlideBarraController implements Initializable {
     @FXML
     void open_Cliente(ActionEvent event) {
         try {
-            FXMLLoader painel_clientes = new FXMLLoader(getClass().getResource("Clientes.fxml"));
+            FXMLLoader painel_clientes = new FXMLLoader(getClass().getResource("/View/View/Clientes.fxml"));
             Parent root1 = (Parent) painel_clientes.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
@@ -84,7 +84,7 @@ public class SlideBarraController implements Initializable {
     @FXML
     void open_config(ActionEvent event) {
         try {
-            FXMLLoader painel_configuracoes = new FXMLLoader(getClass().getResource("Configuracoes.fxml"));
+            FXMLLoader painel_configuracoes = new FXMLLoader(getClass().getResource("/View/View/Configuracoes.fxml"));
             Parent root1 = (Parent) painel_configuracoes.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
@@ -98,7 +98,7 @@ public class SlideBarraController implements Initializable {
     void open_menu(ActionEvent event) throws IOException {
         BorderPane borderPane = (BorderPane) ((Node) event.getSource()).getScene().getRoot();
         if (flag) {
-            Parent slideArea = FXMLLoader.load(getClass().getResource("slideBarra.fxml"));
+            Parent slideArea = FXMLLoader.load(getClass().getResource("/View/View/SlideBarra.fxml"));
             borderPane.setLeft(slideArea);
             flag = false;
         } else {
@@ -110,7 +110,7 @@ public class SlideBarraController implements Initializable {
     @FXML
     void open_usuario(ActionEvent event) {
         try {
-            FXMLLoader painel_usuario = new FXMLLoader(getClass().getResource("Usuarios.fxml"));
+            FXMLLoader painel_usuario = new FXMLLoader(getClass().getResource("/View/View/Usuarios.fxml"));
             Parent root1 = (Parent) painel_usuario.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

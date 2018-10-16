@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="slideArea" alignment="TOP_CENTER" prefHeight="580.0" prefWidth="250.0" styleClass="janela-info" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Principal.SlideBarraController">
+<VBox fx:id="slideArea" alignment="TOP_CENTER" prefHeight="580.0" prefWidth="250.0" styleClass="janela-info" stylesheets="@../Photo_Css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Control.SlideBarraController">
    <children>
       <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" smooth="false">
          <image>

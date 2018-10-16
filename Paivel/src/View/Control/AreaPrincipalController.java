@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View.Principal;
+package View.Control;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,7 +47,7 @@ public class AreaPrincipalController implements Initializable {
     private void open_sidebar(ActionEvent event) throws IOException {
         BorderPane borderPane = (BorderPane) ((Node) event.getSource()).getScene().getRoot();
         if (flag) {
-            Parent slideArea = FXMLLoader.load(getClass().getResource("slideBarra.fxml"));
+            Parent slideArea = FXMLLoader.load(getClass().getResource("/View/View/SlideBarra.fxml"));
             borderPane.setLeft(slideArea);
             flag = false;
         } else {

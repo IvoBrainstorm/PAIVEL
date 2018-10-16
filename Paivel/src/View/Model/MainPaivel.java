@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View.Principal;
+package View.Model;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,13 +22,13 @@ public class MainPaivel extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-       // Parent root = FXMLLoader.load(getClass().getResource("FXMLPrincipal.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/View/View/Principal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/View/View/Login.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.UNDECORATED);
         this.stage = stage;
         stage.show();
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View.Principal;
+package View.Control;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +22,7 @@ import javafx.scene.layout.BorderPane;
  *
  * @author brainstorm
  */
-public class FXMLPrincipalController implements Initializable {
+public class PrincipalController implements Initializable {
     
     private double xOffset = 0;
     private double yOffset = 0;
@@ -35,14 +35,14 @@ public class FXMLPrincipalController implements Initializable {
         try {
           // Parent slideArea = FXMLLoader.load(getClass().getResource("slideBarra.fxml"));
            // Parent barramenu = FXMLLoader.load(getClass().getResource("BarraMenu.fxml"));
-            Parent AreaPrincipal = FXMLLoader.load(getClass().getResource("AreaPrincipal.fxml"));
+            Parent AreaPrincipal = FXMLLoader.load(getClass().getResource("/View/View/AreaPrincipal.fxml"));
             
            // borderPane.setTop(barramenu);
         //    borderPane.setLeft(slideArea);
             borderPane.setCenter(AreaPrincipal);
             
         } catch (IOException ex) {
-            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
     

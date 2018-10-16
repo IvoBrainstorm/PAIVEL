@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="painel_productos" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="painel_productos" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" stylesheets="@../Photo_Css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="fundo-cabexalho">
                <children>
@@ -37,7 +37,7 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </FontAwesomeIcon>
-                        <TextField prefHeight="29.0" prefWidth="612.0" promptText="Pesquisar Cliente" style="-fx-background-color: transparent;" styleClass="menu-pesquisa-field" HBox.hgrow="ALWAYS">
+                        <TextField prefHeight="29.0" prefWidth="612.0" promptText="Pesquisar Cliente" style="-fx-background-color: transparent;" styleClass="lado-cirle-btn" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="DejaVu Sans Bold Oblique" size="15.0" />
                            </font>

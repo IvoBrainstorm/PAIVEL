@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View.Principal;
+package View.Control;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author brainstorm
+ * @author Ivo Brainstorm
  */
-public class BarraMenuController implements Initializable {
+public class EventoController implements Initializable {
 
     /**
      * Initializes the controller class.

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane stylesheets="@../Photo_Css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Control.AreaPrincipalController">
+   <center>
+      <VBox fx:id="AreaPrincipal" alignment="CENTER_RIGHT" prefWidth="1024.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-width: 0px 0px 1px 0px;" stylesheets="@../Photo_Css/stylesheet.css">
+         <children>
+            <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@stylesheet.css" />
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox fx:id="barramenu" prefHeight="50.0" prefWidth="1024.0" styleClass="fundo-cabexalho" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#open_sidebar" prefHeight="50.0" prefWidth="70.0" styleClass="menu-barra-btns" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon iconName="TH_LIST" size="2.5em" styleClass="menu-barra-btns-icon" />
+               </graphic>
+            </JFXButton>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" styleClass="foto-fundo" HBox.hgrow="ALWAYS">
+               <children>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="70.0" styleClass="menu-barra-btns" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIcon iconName="USER" size="2.5em" styleClass="menu-barra-btns-icon" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="70.0" styleClass="menu-barra-btns" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIcon iconName="CLOSE" size="2.5em" styleClass="menu-barra-btns-icon" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <right>
+      <VBox alignment="CENTER" prefHeight="593.0" prefWidth="222.0" styleClass="janela-info" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="2018">
+               <font>
+                  <Font name="DejaVu Sans Condensed Bold" size="29.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <JFXComboBox />
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Separator>
+            <JFXButton prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Janeiro" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="271.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Fevereiro" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="251.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Marco" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="291.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Abril" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="211.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Maio" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="251.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Junho" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="291.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Julho" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="331.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Agosto" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="411.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Stembro" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="431.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Outubro" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="451.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Novembro" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="471.0" prefHeight="50.0" prefWidth="200.0" styleClass="lado-cirle-btn" text="Dezembro" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
