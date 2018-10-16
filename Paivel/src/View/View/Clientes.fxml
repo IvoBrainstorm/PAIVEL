@@ -30,7 +30,7 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </FontAwesomeIcon>
-                        <TextField prefHeight="29.0" prefWidth="612.0" promptText="Pesquisar Cliente" style="-fx-background-color: transparent;" styleClass="menu-pesquisa-field" HBox.hgrow="ALWAYS">
+                        <TextField prefHeight="29.0" prefWidth="612.0" promptText="Pesquisar Cliente" style="-fx-background-color: transparent;" styleClass="lado-cirle-btn" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="DejaVu Sans Bold Oblique" size="15.0" />
                            </font>

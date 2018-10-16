@@ -12,7 +12,7 @@ and open the template in the editor.
 }
 
 .fundo-cabexalho{
-    -fx-background-color: #d9dfe2;
+    -fx-background-image: url('Fundo.jpg');
 }
 
 .janela-user-lbl{
@@ -72,17 +72,33 @@ and open the template in the editor.
 }
 
 .lado-cirle-btn{
-    -fx-background-color: transparent;
+    -fx-background-color: #e96c8a;
     -fx-background-radius: 100px;
     -fx-border-color: #cccccc;
     -fx-border-radius: 100%;
 }
 
 .lado-cirle-btn:hover{
-    -fx-background-color: #b0acf8;
+    -fx-background-color: #e92f5c;
     -fx-background-radius: 100px;
+}
+
+.botao-meses:hover{
+    -fx-background-color: #cb90de;
+    -fx-background-radius: 100px;
+}
+
+.botao-meses{
+    -fx-background-color: transparent;
+    -fx-background-radius: 100px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 100%;
 }
 
 .foto-fundo{
     -fx-background-image: url('Fundo.jpg');
+}
+
+.foto-fundo-prin{
+    -fx-background-image: url('Calendario.jpg');
 }

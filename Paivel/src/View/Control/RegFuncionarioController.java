@@ -7,33 +7,15 @@ package View.Control;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
- * @author brainstorm
+ * @author Ivo Brainstorm
  */
-public class UsuariosController implements Initializable {
+public class RegFuncionarioController implements Initializable {
 
-        @FXML
-    private VBox painel_usuario;
-
-    @FXML
-    private TableView<?> tableListaUsuarios;
-
-    @FXML
-    private TableColumn<?, ?> colunnaNome;
-
-    @FXML
-    private TableColumn<?, ?> colunaUsuario;
-
-    @FXML
-    private TableColumn<?, ?> colunaNivel;
     /**
      * Initializes the controller class.
      */

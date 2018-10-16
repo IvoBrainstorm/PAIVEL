@@ -21,7 +21,7 @@
       </ImageView>
       <Label styleClass="janela-user-lbl" text="Maria Das Dores">
          <font>
-            <Font name="DejaVu Sans Bold" size="19.0" />
+            <Font name="System Bold Italic" size="19.0" />
          </font>
       </Label>
       <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" text="Geral" textFill="#b8b1b1">
@@ -32,49 +32,67 @@
             <Insets bottom="10.0" top="10.0" />
          </VBox.margin>
          <font>
-            <Font name="DejaVu Sans Bold" size="14.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
       <JFXButton fx:id="btnHome" alignment="TOP_LEFT" onAction="#open_menu" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Home">
          <graphic>
             <FontAwesomeIcon iconName="HOME" size="2em" styleClass="janela-btn-icon" />
          </graphic>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
       </JFXButton>
       <JFXButton fx:id="btnCliente" alignment="TOP_LEFT" layoutX="10.0" layoutY="162.0" onAction="#open_Cliente" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Clientes">
          <graphic>
             <FontAwesomeIcon iconName="USERS" size="2em" styleClass="janela-btn-icon" />
          </graphic>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
       </JFXButton>
       <JFXButton fx:id="btnProductos" alignment="TOP_LEFT" layoutX="10.0" layoutY="162.0" onAction="#open_AddProductos" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Adicionar Productos">
          <graphic>
             <FontAwesomeIcon iconName="HOME" size="2em" styleClass="janela-btn-icon" />
          </graphic>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
       </JFXButton>
       <JFXButton alignment="TOP_LEFT" layoutX="10.0" layoutY="198.0" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Eventos">
          <graphic>
             <FontAwesomeIcon iconName="HOME" size="2em" styleClass="janela-btn-icon" />
          </graphic>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
       </JFXButton>
-      <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" text="Administrador" textFill="#b8b1b1">
+      <Label disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" text="Administrador" textFill="#b8b1b1">
          <padding>
             <Insets left="10.0" />
          </padding>
          <font>
-            <Font name="DejaVu Sans Bold" size="14.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
          <VBox.margin>
             <Insets top="20.0" />
          </VBox.margin>
       </Label>
-      <JFXButton fx:id="btnConfig" alignment="TOP_LEFT" layoutX="10.0" layoutY="308.0" onAction="#open_config" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Configuracoes">
+      <JFXButton fx:id="btnConfig" alignment="TOP_LEFT" disable="true" layoutX="10.0" layoutY="308.0" onAction="#open_config" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Configuracoes">
          <graphic>
             <FontAwesomeIcon iconName="HOME" size="2em" styleClass="janela-btn-icon" />
          </graphic>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
       </JFXButton>
-      <JFXButton fx:id="btnUsuario" alignment="TOP_LEFT" layoutX="10.0" layoutY="344.0" onAction="#open_usuario" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Usuarios">
+      <JFXButton fx:id="btnUsuario" alignment="TOP_LEFT" disable="true" layoutX="10.0" layoutY="344.0" onAction="#open_usuario" prefHeight="35.0" prefWidth="250.0" styleClass="janela-btn" text="Usuarios">
          <graphic>
             <FontAwesomeIcon iconName="USERS" size="2em" styleClass="janela-btn-icon" />
          </graphic>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
       </JFXButton>
    </children>
 </VBox>
