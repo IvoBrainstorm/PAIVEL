@@ -71,8 +71,8 @@ public class SlideBarraController implements Initializable {
     @FXML
     void open_Cliente(ActionEvent event) {
         try {
-            FXMLLoader painel_clientes = new FXMLLoader(getClass().getResource("/View/View/Clientes.fxml"));
-            Parent root1 = (Parent) painel_clientes.load();
+            FXMLLoader painel_listar_evento = new FXMLLoader(getClass().getResource("/View/View/ListarEventos.fxml"));
+            Parent root1 = (Parent) painel_listar_evento.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.show();

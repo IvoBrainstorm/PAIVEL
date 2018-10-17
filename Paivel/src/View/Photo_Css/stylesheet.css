@@ -72,14 +72,14 @@ and open the template in the editor.
 }
 
 .lado-cirle-btn{
-    -fx-background-color: #e96c8a;
+    -fx-background-color:  #48cd80;
     -fx-background-radius: 100px;
     -fx-border-color: #cccccc;
     -fx-border-radius: 100%;
 }
 
 .lado-cirle-btn:hover{
-    -fx-background-color: #e92f5c;
+    -fx-background-color: #009966;
     -fx-background-radius: 100px;
 }
 

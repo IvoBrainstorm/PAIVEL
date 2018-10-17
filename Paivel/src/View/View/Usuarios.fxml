@@ -87,7 +87,7 @@
                   <Label text="Nome" />
                   <Label text="Apelido" GridPane.rowIndex="1" />
                   <Label text="Senha" GridPane.rowIndex="2" />
-                  <Label text="Cargo" GridPane.rowIndex="3" />
+                  <Label text="Nivel de Acesso" GridPane.rowIndex="3" />
                   <JFXTextField GridPane.columnIndex="1" />
                   <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -99,14 +99,14 @@
             </GridPane>
          </children>
       </HBox>
-      <TableView fx:id="tableListaUsuarios" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tableListaUsuarios" prefHeight="224.0" prefWidth="900.0">
         <columns>
           <TableColumn fx:id="colunnaNome" prefWidth="363.0" text="Nome" />
           <TableColumn fx:id="colunaUsuario" prefWidth="286.0" text="Usuario" />
             <TableColumn fx:id="colunaNivel" prefWidth="248.0" text="Nivel" />
         </columns>
       </TableView>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="900.0" styleClass="fundo-cabexalho">
          <children>
             <JFXButton prefWidth="100.0" styleClass="lado-cirle-btn">
                <HBox.margin>

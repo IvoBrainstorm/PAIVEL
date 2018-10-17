@@ -61,13 +61,13 @@ public class LoginController implements Initializable {
                 System.out.println("Erro ao abrir a tela nova");
             }
         }else{
-            Image img = new Image("/View/Icons/cancel.png");
+            Image img = new Image("/View/Icons/cancelErro.png");
             Notifications notificacaoErro = Notifications.create()
                     .title("Erro")
-                    .text(userName + "Invalido \nOu senha invalida")
+                    .text("Invalido \nOu senha invalida")
                     .graphic(new ImageView(img))
                     .hideAfter(Duration.seconds(5))
-                    .position(Pos.CENTER);
+                    .position(Pos.BOTTOM_RIGHT);
             notificacaoErro.darkStyle();
             notificacaoErro.showError();
             

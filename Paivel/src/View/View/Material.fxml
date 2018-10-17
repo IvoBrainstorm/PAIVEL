@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -37,9 +35,9 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </FontAwesomeIcon>
-                        <TextField prefHeight="29.0" prefWidth="612.0" promptText="Pesquisar Cliente" style="-fx-background-color: transparent;" styleClass="lado-cirle-btn" HBox.hgrow="ALWAYS">
+                        <TextField prefHeight="29.0" prefWidth="612.0" promptText="Pesquisar Material" style="-fx-background-color: transparent;" styleClass="lado-cirle-btn" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="DejaVu Sans Bold Oblique" size="15.0" />
+                              <Font name="System Bold Italic" size="15.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
@@ -72,64 +70,19 @@
                </children>
             </HBox>
       <Separator prefWidth="200.0" />
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <AnchorPane prefHeight="151.0" prefWidth="900.0">
          <children>
-            <GridPane>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="44.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="132.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="109.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="115.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Prato:" GridPane.halignment="RIGHT" />
-                  <Label text="Copo:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <Label text="Taca" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <JFXTextField promptText="Tipo/Marca" GridPane.columnIndex="1" />
-                  <JFXTextField layoutX="110.0" layoutY="11.0" promptText="Quantidade" GridPane.columnIndex="2" />
-                  <JFXComboBox promptText="Cor" GridPane.columnIndex="3" />
-                  <JFXTextField layoutX="110.0" layoutY="11.0" minWidth="147.0" prefHeight="32.0" prefWidth="147.0" promptText="Tipo/Marca" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <JFXTextField layoutX="110.0" layoutY="45.0" promptText="Tipo/Marca" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <JFXTextField layoutX="210.0" layoutY="11.0" promptText="Quantidade" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <JFXTextField layoutX="210.0" layoutY="45.0" promptText="Quantidade" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <JFXComboBox layoutX="310.0" layoutY="14.0" promptText="Cor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <JFXComboBox layoutX="310.0" layoutY="48.0" promptText="Cor" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-               </children>
-            </GridPane>
-            <GridPane layoutX="10.0" layoutY="10.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="86.0" minWidth="10.0" prefWidth="60.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="116.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="109.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="115.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label text="Garfos" GridPane.halignment="RIGHT" />
-                  <Label text="Facas" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <Label text="Colheres" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <JFXTextField minWidth="102.0" prefHeight="32.0" prefWidth="102.0" promptText="Tipo/Marca" GridPane.columnIndex="1" />
-                  <JFXTextField layoutX="110.0" layoutY="11.0" promptText="Quantidade" GridPane.columnIndex="2" />
-                  <JFXComboBox promptText="Cor" GridPane.columnIndex="3" />
-                  <JFXTextField layoutX="110.0" layoutY="11.0" minWidth="147.0" prefHeight="32.0" prefWidth="147.0" promptText="Tipo/Marca" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <JFXTextField layoutX="110.0" layoutY="45.0" minWidth="113.0" prefHeight="32.0" prefWidth="113.0" promptText="Tipo/Marca" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <JFXTextField layoutX="210.0" layoutY="11.0" promptText="Quantidade" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <JFXTextField layoutX="210.0" layoutY="45.0" promptText="Quantidade" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <JFXComboBox layoutX="310.0" layoutY="14.0" promptText="Cor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <JFXComboBox layoutX="310.0" layoutY="48.0" promptText="Cor" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-               </children>
-            </GridPane>
+            <JFXTextField labelFloat="true" layoutX="33.0" layoutY="27.0" maxWidth="168.0" minWidth="168.0" prefHeight="31.0" prefWidth="168.0" promptText="Nome" />
+            <JFXTextField labelFloat="true" layoutX="33.0" layoutY="74.0" maxWidth="168.0" minWidth="168.0" prefHeight="31.0" prefWidth="168.0" promptText="Quantidade" />
+            <ComboBox layoutX="247.0" layoutY="77.0" prefWidth="150.0" promptText="Categotia" />
+            <ComboBox layoutX="247.0" layoutY="39.0" prefWidth="150.0" promptText="Salao" />
+            <JFXTextArea focusColor="#5b5858" labelFloat="true" layoutX="440.0" layoutY="39.0" maxWidth="466.0" minWidth="431.0" prefHeight="100.0" prefWidth="431.0" promptText="Descricao" unFocusColor="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextArea>
          </children>
-      </HBox>
+      </AnchorPane>
       <Separator prefWidth="200.0" />
       <TableView prefHeight="272.0" prefWidth="900.0">
         <columns>
@@ -140,14 +93,14 @@
         </columns>
       </TableView>
       <Separator prefWidth="200.0" />
-      <HBox alignment="CENTER" prefHeight="82.0" prefWidth="900.0">
+      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="900.0">
          <children>
-            <JFXButton prefWidth="100.0" styleClass="lado-cirle-btn">
+            <JFXButton prefWidth="100.0" styleClass="lado-cirle-btn" text="Actualizar">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
             </JFXButton>
-            <JFXButton prefWidth="100.0" styleClass="lado-cirle-btn">
+            <JFXButton prefWidth="100.0" styleClass="lado-cirle-btn" text="Eliminar">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
