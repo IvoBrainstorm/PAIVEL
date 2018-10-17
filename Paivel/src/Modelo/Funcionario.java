@@ -6,76 +6,43 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Paulo Amosse
  */
-@Entity(name = "funcionario")
+@Entity(name = "FUNCIONARIO")
 public class Funcionario implements Serializable {
 
     @Id
     @GeneratedValue
-    private Integer id_funcionario;
+    private Integer funcionarioID;
     private String codigoFuncionario;
     private String nome;
     private boolean disponivel;
     private boolean demitido;
+    private boolean apagado;
 
-    @ManyToOne
-    @JoinColumn(name = "id_categoriaFuncionario")
-    private CategoriaFuncionario categoriaFuncionario;
+    @ManyToMany(mappedBy = "funcionarios", fetch = FetchType.EAGER)
+    private Set<Evento> eventos = new HashSet<>();
 
-    @ManyToMany
-    private Collection<Evento> eventos = new ArrayList<>();
-
-    public String getNome() {
-        return nome;
+    public Funcionario() {
+        this.disponivel = true;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Integer getFuncionarioID() {
+        return funcionarioID;
     }
 
-    public CategoriaFuncionario getCategoriaFuncionario() {
-        return categoriaFuncionario;
-    }
-
-    public void setCategoriaFuncionario(CategoriaFuncionario categoriaFuncionario) {
-        this.categoriaFuncionario = categoriaFuncionario;
-    }
-
-    public Collection<Evento> getEventos() {
-        return eventos;
-    }
-
-    public void setEventos(Collection<Evento> eventos) {
-        this.eventos = eventos;
-    }
-
-    public boolean isDisponivel() {
-        return disponivel;
-    }
-
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
-    }
-
-    public Integer getId_funcionario() {
-        return id_funcionario;
-    }
-
-    public void setId_funcionario(Integer id_funcionario) {
-        this.id_funcionario = id_funcionario;
+    public void setFuncionarioID(Integer funcionarioID) {
+        this.funcionarioID = funcionarioID;
     }
 
     public String getCodigoFuncionario() {
@@ -86,6 +53,22 @@ public class Funcionario implements Serializable {
         this.codigoFuncionario = codigoFuncionario;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    private void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
     public boolean isDemitido() {
         return demitido;
     }
@@ -94,43 +77,59 @@ public class Funcionario implements Serializable {
         this.demitido = demitido;
     }
 
-    public boolean disponibilizarFuncionario() {
-        if (this.isDisponivel()) {
-            return false;
-        } else {
-            this.setDisponivel(true);
-            return true;
-        }
+    public Set<Evento> getEventos() {
+        return eventos;
     }
 
-    public boolean indisponibilizarFuncionario() {
-        if (this.isDisponivel()) {
-            this.setDisponivel(false);
-            return true;
-        }
-        return false;
+    public void setEventos(Set<Evento> eventos) {
+        this.eventos = eventos;
     }
 
-    public boolean demitirFuncionario() {
-        if (this.isDemitido()) {
-            return false;
-        } else {
+    public boolean isApagado() {
+        return apagado;
+    }
+
+    private void setApagado(boolean apagado) {
+        this.apagado = apagado;
+    }
+
+    public void apagar() {
+        this.setApagado(true);
+    }
+    
+    public void recuperar(){
+        this.setApagado(false);
+    }
+
+    public void demitirFuncionario() {
+        if (!this.isDemitido()) {
             this.setDemitido(true);
-            return true;
+            indisponibilizar();
         }
     }
 
-    /**
-     * Este metodo provavelemte (99.9% de chances) vai dar erro. Porque o
-     * funcionario no tipo de mapeamento que fiz nao precisa saber a que eventos
-     * foi solicitado, mas o evento precisa saber que funcionarios usou.
-     *
-     * @return
-     */
-    public int eventosParticipados() {
+    public void revogarDemissao() {
+        if (this.isDemitido()) {
+            this.setDemitido(false);
+            disponibilizar();
+        }
+    }
+
+    public void disponibilizar() {
+        if (!this.isDemitido()) {
+            this.setDisponivel(true);
+        }
+    }
+
+    public void indisponibilizar() {
+        if (!this.isDemitido()) {
+            this.setDisponivel(false);
+        }
+    }
+
+    public int eventosPartcipados() {
         int i = 0;
-        Iterator iterador = eventos.iterator();
-        while (iterador.hasNext() ) {
+        for (Evento e : this.getEventos()) {
             i++;
         }
         return i;

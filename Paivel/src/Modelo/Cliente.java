@@ -6,30 +6,49 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
- * Unidade elementar do negocio (without clients, we dont have a business).
  *
  * @author Paulo Amosse
  */
-@Entity(name = "cliente")
+@Entity(name = "CLIENTE")
 public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue
-    private Integer id_cliente;
+    private Integer clienteID;
     private String nome;
     private String contato1;//Contato do cliente
     private String contato2;//Segundo contacto, este e' opcional
     private String email; //Contato de outra pessoa que pode ser contactada em caso de problema
     private double taxa; //Taxa para Clientes Empresariais e Individuais
+    private boolean apagado;
 
-    @OneToOne(mappedBy = "evento")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Parcela> parcelas = new HashSet<>();
+
+    @OneToOne(mappedBy = "cliente")
     private Evento evento;
+
+    public Cliente() {
+    }
+
+    public Integer getClienteID() {
+        return clienteID;
+    }
+
+    public void setClienteID(Integer clienteID) {
+        this.clienteID = clienteID;
+    }
 
     public String getNome() {
         return nome;
@@ -71,20 +90,36 @@ public class Cliente implements Serializable {
         this.taxa = taxa;
     }
 
-    public Evento getEvento() {
-        return evento;
+    public Set<Parcela> getParcelas() {
+        return parcelas;
+    }
+
+    public void setParcelas(Set<Parcela> parcelas) {
+        this.parcelas = parcelas;
     }
 
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
 
-    public Integer getId_cliente() {
-        return id_cliente;
+    public Evento getEvento() {
+        return evento;
     }
 
-    public void setId_cliente(Integer id_cliente) {
-        this.id_cliente = id_cliente;
+    public boolean isApagado() {
+        return apagado;
+    }
+
+    private void setApagado(boolean apagado) {
+        this.apagado = apagado;
+    }
+
+    public void apagar() {
+        this.setApagado(true);
+    }
+
+    public void recuperar() {
+        this.setApagado(false);
     }
 
 }

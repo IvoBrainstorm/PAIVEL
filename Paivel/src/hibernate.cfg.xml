@@ -40,20 +40,20 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/PAIVEL</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class="Modelo.CategoriaFuncionario"/>
-        <mapping class="Modelo.CategoriaMaterial"/>
-        <mapping class="Modelo.Cliente"/>
-        <mapping class="Modelo.Evento"/>
-        <mapping class="Modelo.Funcionario"/>
-        <mapping class="Modelo.Material"/>
-        <mapping class="Modelo.Salao"/>
-    </session-factory>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/paiveltestes</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping class="Modelo.Salao"/>
+    <mapping class="Modelo.Material"/>
+    <mapping class="Modelo.Funcionario"/>
+    <mapping class="Modelo.Cliente"/>
+    <mapping class="Modelo.Parcela"/>
+    <mapping class="Modelo.Evento"/>
+    <mapping class="Modelo.Aluguer"/>
+  </session-factory>
 </hibernate-configuration>

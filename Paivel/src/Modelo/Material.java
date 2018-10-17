@@ -6,49 +6,54 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
- * @see Funcionario
+ *
  * @author Paulo Amosse
  */
-@Entity(name = "material")
+@Entity
+@Table(name = "MATERIAL")
 public class Material implements Serializable {
 
     @Id
     @GeneratedValue
-    private Integer id_material;
+    private Integer materialID;
     private String codigoMaterial;
     private String nome;
     private int quantidade;
-    private String descricao;
+    private double precoDeAluguer;
+    private String categoria;
     private boolean disponivel;
     private boolean alugavel;
-
-    //Um material esta para uma categoria
-    //Uma categoria esta para varios materiais
-    @ManyToOne
-    @JoinColumn(name = "id_categoriaMaterial")
-    private CategoriaMaterial material;
-
-    @ManyToMany
-    //Um material esta para varios eventos.
-    private Collection<Evento> evento = new ArrayList<>();
-
-    @ManyToMany
-    //Um material pode ser alugado por varias entidades.
-    private Collection<Alugar> alugueres = new ArrayList<>();
+    private boolean apagado;
 
     @ManyToOne
-    @JoinColumn(name = "id_salao")
     private Salao salao;
+
+    public Material() {
+        this.setDisponivel(true);
+    }
+
+    public Integer getMaterialID() {
+        return materialID;
+    }
+
+    public void setMaterialID(Integer materialID) {
+        this.materialID = materialID;
+    }
+
+    public String getCodigoMaterial() {
+        return codigoMaterial;
+    }
+
+    public void setCodigoMaterial(String codigoMaterial) {
+        this.codigoMaterial = codigoMaterial;
+    }
 
     public String getNome() {
         return nome;
@@ -66,20 +71,12 @@ public class Material implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public CategoriaMaterial getMaterial() {
-        return material;
-    }
-
-    public void setMaterial(CategoriaMaterial material) {
-        this.material = material;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public boolean isDisponivel() {
@@ -90,28 +87,12 @@ public class Material implements Serializable {
         this.disponivel = disponivel;
     }
 
-    public Collection<Evento> getEvento() {
-        return evento;
+    public boolean isAlugavel() {
+        return alugavel;
     }
 
-    public void setEvento(Collection<Evento> evento) {
-        this.evento = evento;
-    }
-
-    public Integer getId_material() {
-        return id_material;
-    }
-
-    public void setId_material(Integer id_material) {
-        this.id_material = id_material;
-    }
-
-    public String getCodigoMaterial() {
-        return codigoMaterial;
-    }
-
-    public void setCodigoMaterial(String codigoMaterial) {
-        this.codigoMaterial = codigoMaterial;
+    public void setAlugavel(boolean alugavel) {
+        this.alugavel = alugavel;
     }
 
     public Salao getSalao() {
@@ -122,22 +103,62 @@ public class Material implements Serializable {
         this.salao = salao;
     }
 
-    public boolean isAlugavel() {
-        return alugavel;
+    public double getPrecoDeAluguer() {
+        return precoDeAluguer;
     }
 
-    public void setAlugavel(boolean alugavel) {
-        this.alugavel = alugavel;
+    public void setPrecoDeAluguer(double precoDeAluguer) {
+        this.precoDeAluguer = precoDeAluguer;
     }
 
-    public boolean alugar(int quantidade) {
-        if (this.isAlugavel()) {
-            if (this.getQuantidade() >= quantidade) {
-                this.setQuantidade(this.getQuantidade() - quantidade);
-                return true;
-            }
+    private void setApagado(boolean apagado) {
+        this.apagado = apagado;
+    }
+
+    public boolean isApagado() {
+        return apagado;
+    }
+
+    public void apagar() {
+        this.setApagado(true);
+    }
+
+    public void recuperar() {
+        this.setApagado(false);
+    }
+
+    public boolean disponibilizar() {
+        if (this.getQuantidade() > 0) {
+            this.setDisponivel(true);
+            return true;
         }
         return false;
     }
 
+    public boolean indisponibilizar() {
+        if (this.getQuantidade() == 0) {
+            this.setDisponivel(false);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean adicionar(int quantidade) {
+        if (quantidade > 0) {
+            this.setQuantidade(this.getQuantidade() + quantidade);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean retirar(int quantidade) {
+        if ((this.getQuantidade() > 0) && (this.getQuantidade() - quantidade) >= 0) {
+            this.setQuantidade(this.getQuantidade() - quantidade);
+            if (this.getQuantidade() == 0) {
+                indisponibilizar();
+            }
+            return true;
+        }
+        return false;
+    }
 }
