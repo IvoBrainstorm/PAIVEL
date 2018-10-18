@@ -6,11 +6,11 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import javafx.scene.paint.Material;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -25,44 +25,60 @@ import javax.persistence.TemporalType;
  *
  * @author Paulo Amosse
  */
-@Entity(name = "evento")
+@Entity(name = "EVENTO")
 public class Evento implements Serializable {
 
     @Id
     @GeneratedValue
-    private Integer id_evento;
+    private Integer eventoID;
     private String codigoEvento;
     private String titulo;
     private Integer nrPessoas;
 
     @Temporal(TemporalType.DATE)
     private Date dataDeRealizacao;
-    @Temporal(TemporalType.TIME)
-    private Date duracao; //a duracao do evento e' por default 19 horas (05 - 23 hrs).
+    private int duracao; //a duracao do evento e' por default 19 horas (05 - 23 hrs).
     private double preco; //O preco sera igual a nrPessoas*precoDoSalao - algumDesconto + algumaTaxa 
-    private double valorDasParcelas;
     private double taxaAdiamento;
     private boolean activo;
+    private boolean apagado;
 
     @ManyToOne
-    @JoinColumn(name = "id_salao")
-    private Salao salao; //Escolha do salao.
+    private Salao salao;
 
     @OneToOne
-    @JoinColumn(name = "id_cliente")
-    private Cliente cliente; //A seleccao e gravacao do cliente e' feita na hora.
+    private Cliente cliente;
 
-    @ManyToMany
-    @JoinTable(name = "Evento_Material", joinColumns = @JoinColumn(name = "id_evento"),
-            inverseJoinColumns = @JoinColumn(name = "id_material"))
-    //Um mesmo evento usa varios materiais e um material pode ser usado em varios eventos.
-    private Collection<Material> materiais = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "Ev_Mat", joinColumns = @JoinColumn(name = "codigoEvento"),
+            inverseJoinColumns = @JoinColumn(name = "codigoMaterial"))
+    private Set<Material> materiais = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(name = "Evento_Funcionario", joinColumns = @JoinColumn(name = "id_evento"),
-            inverseJoinColumns = @JoinColumn(name = "id_funcionario"))
-    //E ainda aloca varios funcionarios.
-    private Collection<Funcionario> funcionarios = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "Ev_Func", joinColumns = @JoinColumn(name = "codigoEvento"),
+            inverseJoinColumns = @JoinColumn(name = "codigoFuncionario"))
+    private Set<Funcionario> funcionarios = new HashSet<>();
+
+    public Evento() {
+        this.activo = true;
+        this.setDuracao(23);
+    }
+
+    public Integer getEventoID() {
+        return eventoID;
+    }
+
+    public void setEventoID(Integer eventoID) {
+        this.eventoID = eventoID;
+    }
+
+    public String getCodigoEvento() {
+        return codigoEvento;
+    }
+
+    public void setCodigoEvento(String codigoEvento) {
+        this.codigoEvento = codigoEvento;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -77,7 +93,13 @@ public class Evento implements Serializable {
     }
 
     public void setNrPessoas(Integer nrPessoas) {
-        this.nrPessoas = nrPessoas;
+
+        if (nrPessoas > this.getSalao().getCapacidade()) {
+            throw new Error("O nr de pessoas deve ser menor que a capacidade do salao.");
+        } else {
+            this.nrPessoas = nrPessoas;
+        }
+
     }
 
     public Date getDataDeRealizacao() {
@@ -88,20 +110,12 @@ public class Evento implements Serializable {
         this.dataDeRealizacao = dataDeRealizacao;
     }
 
-    public Date getDuracao() {
+    public int getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(Date duracao) {
+    public void setDuracao(int duracao) {
         this.duracao = duracao;
-    }
-
-    public Salao getSalao() {
-        return salao;
-    }
-
-    public void setSalao(Salao salao) {
-        this.salao = salao;
     }
 
     public double getPreco() {
@@ -112,28 +126,12 @@ public class Evento implements Serializable {
         this.preco = preco;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public double getTaxaAdiamento() {
+        return taxaAdiamento;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Collection<Material> getMateriais() {
-        return materiais;
-    }
-
-    public void setMateriais(Collection<Material> materiais) {
-        this.materiais = materiais;
-    }
-
-    public Collection<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
-
-    public void setFuncionarios(Collection<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
+    public void setTaxaAdiamento(double taxaAdiamento) {
+        this.taxaAdiamento = taxaAdiamento;
     }
 
     public boolean isActivo() {
@@ -144,77 +142,100 @@ public class Evento implements Serializable {
         this.activo = activo;
     }
 
-    public Integer getId_evento() {
-        return id_evento;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setId_evento(Integer id_evento) {
-        this.id_evento = id_evento;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public String getCodigoEvento() {
-        return codigoEvento;
+    public Set<Material> getMateriais() {
+        return materiais;
     }
 
-    public void setCodigoEvento(String codigoEvento) {
-        this.codigoEvento = codigoEvento;
+    public void setMateriais(Set<Material> materiais) {
+        this.materiais = materiais;
     }
 
-    public double getTaxaAdiamento() {
-        return taxaAdiamento;
+    public Set<Funcionario> getFuncionarios() {
+        return funcionarios;
     }
 
-    public void setTaxaAdiamento(double taxaAdiamento) {
-        this.taxaAdiamento = taxaAdiamento;
+    public void setFuncionarios(Set<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
     }
 
-    public double getValorDasParcelas() {
-        return valorDasParcelas;
+    public Salao getSalao() {
+        return salao;
     }
 
-    public void setValorDasParcelas(double valorDasParcelas) {
-        this.valorDasParcelas = valorDasParcelas;
+    public void setSalao(Salao salao) {
+        this.salao = salao;
     }
 
-    /**
-     * Vila Verde aceita um adiamento sem pagamento de taxa, mediante a
-     * apresentacao de justificacao plausivel, mas se houver um segundo
-     * adiamento, sera cobrada uma taxa de 30.000 MT para se adiar, mas os 30%
-     * do valor do evento continuam la ate o termino do pagamento das parcelas.
-     *
-     * @param novaData
-     * @param valor
-     */
-    public void adiar(Date novaData, double valor) {
-        this.taxaAdiamento = valor;
-        this.setDataDeRealizacao(novaData);
+    public boolean isApagado() {
+        return apagado;
     }
 
-    public boolean desactivar() {
+    private void setApagado(boolean apagado) {
+        this.apagado = apagado;
+    }
+
+    public void apagar() {
+        this.setApagado(true);
+    }
+
+    public void recuperar() {
+        this.setApagado(false);
+    }
+
+    public boolean adiarPara(Date novaData) {
         if (this.isActivo()) {
-            this.setActivo(false);
+            this.setDataDeRealizacao(novaData);
             return true;
         }
         return false;
     }
 
-    public boolean pagarParcela(double valor) {
-        if (valor >= 0) {
-            if (this.getValorDasParcelas() < this.getPreco()) {
-                if ((this.getValorDasParcelas() + valor) <= this.getPreco()) {
-                    this.setValorDasParcelas(valor+this.getValorDasParcelas());
-                    return true;
-                }
-            }
+    public void activar() {
+        if (!this.isActivo()) {
+            this.setActivo(true);
         }
-        return false;
     }
 
-    public boolean activar() {
+    public void desactivar() {
         if (this.isActivo()) {
-            return false;
+            this.setActivo(false);
         }
-        this.setActivo(true);
+    }
+
+    public void definirPreco() {
+        double valor = this.getSalao().getPreco() * this.getNrPessoas() + this.cliente.getTaxa();
+        this.setPreco(valor);
+    }
+
+    public boolean pagarParcela(double valor) {
+
+        double dinheiro = 0;
+
+        for (Parcela parcela : this.getCliente().getParcelas()) {
+            dinheiro = dinheiro + parcela.getValor();
+        }
+
+        if ((dinheiro == 0) && (dinheiro + valor) >= 0.3 * this.getPreco()) {
+            activar();
+            if ((dinheiro + valor) <= this.getPreco()) {
+                Parcela p = new Parcela();
+                p.setValor(valor);
+                p.setCliente(this.cliente);
+
+                this.getCliente().getParcelas().add(p);
+                return true;
+            }
+
+        }
+
         return false;
     }
 

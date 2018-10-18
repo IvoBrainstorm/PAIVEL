@@ -6,39 +6,58 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
- * Pra uma Casa de Eventos que possui mais de um salao, como e' o caso do Vila
- * Verde, Folha Verde e outros, devemos registar todos esses saloes e a sua
- * localizacao.
  *
  * @author Paulo Amosse
  */
-@Entity(name = "salao")
+@Entity(name = "SALAO")
 public class Salao implements Serializable {
 
     @Id
     @GeneratedValue
-    private Integer id_salao;
+    private Integer salaoID;
     private String codigoSalao;
     private String nome;
     private String descricao;
+    private int capacidade;
     private double preco; //Preco do salao por pessoa.
     private boolean disponivel;
+    private boolean apagado;
 
-    @OneToMany
-    //um salao esta para varios eventos
-    private Collection<Evento> eventos = new ArrayList<>();
+    @OneToMany(mappedBy = "salao", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Material> materiais = new HashSet<>();
 
-    @OneToMany
-    //Um Salao esta para varios materiais
-    private Collection<Material> material = new ArrayList<>();
+    @OneToMany(mappedBy = "salao", fetch = FetchType.EAGER)
+    private Set<Evento> eventos = new HashSet<>();
+
+    public Salao() {
+        this.disponivel = true;
+    }
+
+    public Integer getSalaoID() {
+        return salaoID;
+    }
+
+    public void setSalaoID(Integer salaoID) {
+        this.salaoID = salaoID;
+    }
+
+    public String getCodigoSalao() {
+        return codigoSalao;
+    }
+
+    public void setCodigoSalao(String codigoSalao) {
+        this.codigoSalao = codigoSalao;
+    }
 
     public String getNome() {
         return nome;
@@ -72,52 +91,54 @@ public class Salao implements Serializable {
         this.disponivel = disponivel;
     }
 
-    public Collection<Evento> getEventos() {
+    public Set<Material> getMateriais() {
+        return materiais;
+    }
+
+    public void setMateriais(Set<Material> materiais) {
+        this.materiais = materiais;
+    }
+
+    public Set<Evento> getEventos() {
         return eventos;
     }
 
-    public void setEventos(Collection<Evento> eventos) {
+    public void setEventos(Set<Evento> eventos) {
         this.eventos = eventos;
     }
 
-    public Collection<Material> getMaterial() {
-        return material;
+    public int getCapacidade() {
+        return capacidade;
     }
 
-    public void setMaterial(Collection<Material> material) {
-        this.material = material;
+    public void setCapacidade(int capacidade) {
+        this.capacidade = capacidade;
     }
 
-    public Integer getId_salao() {
-        return id_salao;
+    public boolean isApagado() {
+        return apagado;
     }
 
-    public void setId_salao(Integer id_salao) {
-        this.id_salao = id_salao;
+    private void setApagado(boolean apagado) {
+        this.apagado = apagado;
     }
 
-    public String getCodigoSalao() {
-        return codigoSalao;
+    public void apagar() {
+        this.setApagado(true);
     }
 
-    public void setCodigoSalao(String codigoSalao) {
-        this.codigoSalao = codigoSalao;
+    public void recuperar() {
+        this.setApagado(false);
     }
 
-    public boolean disponibilizarSalao() {
-        if (this.isDisponivel()) {
-            return false;
-        }
+    public boolean disponibilizar() {
         this.setDisponivel(true);
         return true;
     }
 
-    public boolean indisponibilizarSalao() {
-        if (this.isDisponivel()) {
-            this.setDisponivel(false);
-            return true;
-        }
-        return false;
+    public boolean indisponibilizar() {
+        this.setDisponivel(false);
+        return true;
     }
 
 }
