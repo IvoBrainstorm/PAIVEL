@@ -22,6 +22,7 @@ public class MainPaivel extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        
 //        Parent root = FXMLLoader.load(getClass().getResource("/View/View/Principal.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("/View/View/Login.fxml"));
         
